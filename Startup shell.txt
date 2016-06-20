@@ -1,0 +1,22 @@
+github:
+cd C:/Users/pshih/Documents
+
+IntelliJ
+Play2X
+Project SDK: Programs/Java/JDK
+
+While debugging:
+Press F8 to proceed
+Press F7 to look at a function
+
+Scala
+https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-scala-application.html
+Intellij
+Scala
+Click CREATE for stuff 
+http://www.bks2.com/blog/2013/02/17/zero-to-Scala/
+part 3
+
+Docker
+A means of containing an application in its own virtual computer, so that you don't need to constantly update
+the server with the newest java, schala, and all that messy setup

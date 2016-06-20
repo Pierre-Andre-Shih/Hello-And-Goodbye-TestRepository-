@@ -1,0 +1,78 @@
+After looking at the program file, it seems that the project requires an element from the first list before 
+it can apply the second list.
+
+What I'm planning is that we need to create a new list file for each element that appears on the first list
+multiple times, then . I'm worried about what this will do in future operations where multiple fields
+may appear for an item that is not LAST.
+
+
+ConvertFileToJSON seems to successfully convert the file in the input into JSON. After comparing the
+original file with what is stored in the debug json element "json", I conclude that the program successfully
+stores ALL flag data, even though one of the flag data detailed elements is exempt from the final process.
+
+Wait a minute. Json is clearly a JSON object, that was seen earlier. Why is it not triggering the first
+element of the if statemnent? Json reader /= json element?
+
+Oh right. Json array. Carry on.
+
+FIELDEXTRACTOR is the current main focus:
+
+Seriously, are they prodding me? This seems obvious, as the problem appears to be that the current system
+will ONLY select items for which there is an item... for the "for" loop.
+So to patch the current system we need only  to somehow complete the code so that it continues:
+	for (String jsonField : jsonFields) {
+		String[] memberLayers = jsonField.split("\\.");
+		String jsonValue = extractJson(json, memberLayers);
+		jsonValues.add(jsonValue);
+	}
+And then more
+	while (more stuff is contained in the jon element) {
+        	String[] memberLayers = jsonField.split("\\.");
+        	String jsonValue = extractJson(json, memberLayers);
+        	jsonValues.add(jsonValue);
+	}
+
+Option A: Append the remaining data into a singular item
+Pros: Simple and effective
+Cons: Messy, may not work
+Requirements: capability to delete code from a json element (may copy if possible), capacity to add safely
+
+Option B: Repeat jsonField for each item, using a flag to determine if anything has been done, and stop when
+there are no more elements remaining, deleting them from each element
+Pros: Simple, effective, easily convertible using new code into a safer format
+Cons: May bug out on the reset by repeating code if said code is not deleted, may input multiple lines
+if there are more users
+Requirements: Permission to delete a tuple or register it as invalid.
+basic plan as follows
+
+boolean any_remaining_items = true
+while any_remaining_items
+	any_remaining_items = false
+	for (String jsonField: jsonFields)
+		if
+			any_remaining_items = true
+			Stuff
+		else
+			no_stuff
+)
+
+Does the preparation to Field extractor extract a tuple first? May need to use a two-tuple test code.
+For the moment, it looks like it does.
+
+Option C: Look for any fields and compare to the remaining items on the list
+Pros: Straightforward fix of the problem
+Cons: may require comparison of fields that becomes exponentially time-consuming. (can be patched with a 
+specific comparison of the flag records). Might be patchable with an indexer.
+Requirements: JsonValues comparisons, ability to extract by index each field in the tuple.
+
+
+Actual: The current code will only request json sub-items for items that are adjacent to a field listed in
+jsonFields Which means that the 2nd, 3rd, and so on flags are not considered for extraction (and subsequently
+pasted in the csv file) because they are never called in fieldExtractor, never extracted, and never even
+considered for placement in the csv file.
+
+Note that this includes items with fields that are not placed in the original flag criteria, is this an
+expected feature? <yes it is>
+
+
+Expected: The code will ...
