@@ -1,3 +1,24 @@
 This sentence is false.
 
 This sentence isn't not un-true.
+
+Collect 10 items
+Ask Michael Doe.
+
+TC1305 Step 5:
+7.4.1
+7.4.7
+7.4.1.1
+Wait, what?
+THis may need to be corrected. If an auditor is on-site, and does these things in order, and it so happens
+that 7.4.1 ends up referring to a set of devices that are inefficient to test and should be done in one go
+then when the auditor realizes that they just ignored a bunch of tests that require a review from those
+same devices/employees, the contractor may get ticked.
+This is a minor problem, but it shouldn't exist. Looks like whoever was organizing this thing focused on
+the first three numbers in non-decimal integers and so the 1.1 was treated as 11 > 7. 
+
+TC 1383 Step 10:
+I forgot to select a trade before completing the form for this test, went to the trade section to select
+a trade, and when I was done the warning sign was still there. Now I know that recalculating/refreshing is
+usually the normal way to go, but a large warning sign that persists after doing what it says may be a
+little stressful to non-technologically adept users.
